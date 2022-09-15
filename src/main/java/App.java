@@ -1,5 +1,8 @@
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
+
+import dao.DAO;
+import model.ComputerParts;
 
 public class App {
 	
@@ -28,23 +31,23 @@ public class App {
 		return idAtual;
 	}
 	
-	public static Computer criarNovoPc () {
-		Computer pc = new Computer();
+	public static ComputerParts criarNovoPc () {
+		ComputerParts pc = new ComputerParts();
 		
 		System.out.println("Digite a CPU:");
-		pc.setCpu(sc.nextLine());
-		System.out.println("Digite a GPU:");
-		pc.setGpu(sc.nextLine());
-		System.out.println("Digite a RAM:");
-		pc.setRam(sc.nextInt());
-		System.out.println("Digite o HDD:");
-		pc.setHdd(sc.nextInt());
+//		pc.setCpu(sc.nextLine());
+//		System.out.println("Digite a GPU:");
+//		pc.setGpu(sc.nextLine());
+//		System.out.println("Digite a RAM:");
+//		pc.setRam(sc.nextInt());
+//		System.out.println("Digite o HDD:");
+//		pc.setHdd(sc.nextInt());
 		pc.setId(atualizarId());
 		
 		return pc;
 	}
 	
-	public static boolean inserirPc(Computer pc) {
+	public static boolean inserirPc(ComputerParts pc) {
 		boolean resp = false;
 		
 		System.out.println("=====================================================");
@@ -68,7 +71,7 @@ public class App {
 		System.out.println("Digite um id");
 		
 		int id = sc.nextInt();
-		Computer pc2 = criarNovoPc();
+		ComputerParts pc2 = criarNovoPc();
 		pc2.setId(id);		
 		
 		if (test.update(pc2)) {
@@ -86,21 +89,21 @@ public class App {
 		System.out.println("=====================================================");
 		System.out.println("Digite um id");
 		
-		int id = sc.nextInt();
+//		int id = sc.nextInt();
 
-		if (test.delete(""+id)) {
-			resp = true;
-		}
+//		if (test.delete(""+id)) {
+//			resp = true;
+//		}
 		
 		return resp;
 	}
 	
-	public static void listarPc () {
-		List<Computer> computers = test.listComputers();
-		for (Computer i : computers) {
-			System.out.println(i.toString());
-		}
-	}
+//	public static void listarPc () {
+//		List<ComputerParts> computers = test.listComputerPartss();
+//		for (ComputerParts i : computers) {
+//			System.out.println(i.toString());
+//		}
+//	}
 	
 	public static void main(String[] args) {
 		
@@ -133,9 +136,9 @@ public class App {
 						System.out.println("pc deletado");
 					}
 					break;
-				case 4:
-					listarPc();
-					break;
+//				case 4:
+//					listarPc();
+//					break;
 					
 				case 5:
 					stopLoop = true;
@@ -147,10 +150,10 @@ public class App {
 			
 		}
 		
-		if(test.deleteAll()) {
-			System.out.println("acabou");
-		
-		}
+//		if(test.deleteAll()) {
+//			System.out.println("acabou");
+//		
+//		}
 		
 		
 	}
